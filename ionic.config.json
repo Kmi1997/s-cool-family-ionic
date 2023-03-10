@@ -1,0 +1,7 @@
+{
+  "name": "s'Cool Family",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
