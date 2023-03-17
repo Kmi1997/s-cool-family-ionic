@@ -1,21 +1,26 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, map } from 'rxjs';
+import { Observable } from 'rxjs';
+import { IUserHome } from 'src/app/dashboard/models/userHom.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CallAPIService {
 
+  baseURL: string = 'http://localhost:3200';
+
   constructor(private http: HttpClient) { }
 
-  getOne(): Observable<any> {
-    return this.http.get('http://localhost:3200/intern/getAll');
-  };
+  getOne(): Observable<{}> {
+    return this.http.get(`${this.baseURL}/intern/getAll`);
+  }
 
   connection(data: {}): Observable<any> {
-    return this.http.post('http://localhost:3200/admin/testConnection', data).pipe(
-      map(obj => console.log("Ok:" + obj))
-    );
+    return this.http.post(`${this.baseURL}/admin/testConnection`, data);
+  }
+
+  getThisAdmin(): Observable<IUserHome> {
+    return this.http.get<IUserHome>(`${this.baseURL}/admin/getThisAdmin`);
   }
 }
