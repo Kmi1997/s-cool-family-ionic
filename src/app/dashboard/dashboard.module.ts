@@ -18,7 +18,7 @@ import { HomeComponent } from './home/home.component';
     DashboardRoutingModule,
     IonicModule.forRoot(),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ]
 })
 export class DashboardModule { }

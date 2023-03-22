@@ -1,22 +1,65 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Subject } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MenuOpenService } from '../shared/services/menuOpen.service';
-import { ConnectionComponent } from './connection/connection.component';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, OnDestroy {
 
   obsConnected: boolean = false;
+  menuList: { menuName: string, url: string; }[] = [
+    {
+      menuName: 'Stages',
+      url: '/dashboard/features/internships'
+    },
+    {
+      menuName: 'Inscriptions',
+      url: '/dashboard/features/registrations'
+    },
+    {
+      menuName: 'Comptes',
+      url: '/dashboard/features/admins'
+    },
+    {
+      menuName: 'Paramètres',
+      url: '/dashboard/features/params'
+    },
+  ];
 
-  constructor(private obs: MenuOpenService) { }
+
+  constructor(private obs: MenuOpenService, private route: Router) { }
 
   ngOnInit() {
 
-    this.obs.obsCheckConnectedFn().subscribe((x: boolean) => this.obsConnected = x);
+    this.menuList.forEach((x: any) => console.log(x.url));
+    this.obs.obsCheckConnectedFn().subscribe((x: boolean) => {
+      this.obsConnected = x;
+    });
+
+    this.route.events.subscribe(() => {
+      if (localStorage.length) {
+        return this.obs.obsCheckConnected$.next(true);
+      }
+      else {
+        return this.obs.obsCheckConnected$.next(false);
+      }
+    });
+
+  }
+
+
+
+
+
+  deconnection() {
+    console.log("ok");
+    localStorage.clear();
+  }
+
+  ngOnDestroy(): void {
+    this.obs.obsCheckConnectedFn().unsubscribe();
   }
 }

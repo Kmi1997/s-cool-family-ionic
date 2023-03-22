@@ -6,6 +6,7 @@ import { InternshipsComponent } from './internships/internships.component';
 import { AdminComponent } from './admin/admin.component';
 import { FeaturesRoutingModule } from './features.routing';
 import { FeaturesComponent } from './features.component';
+import { IonicModule } from '@ionic/angular';
 
 
 
@@ -19,7 +20,8 @@ import { FeaturesComponent } from './features.component';
   ],
   imports: [
     CommonModule,
-    FeaturesRoutingModule
+    FeaturesRoutingModule,
+    IonicModule.forRoot()
   ]
 })
 export class FeaturesModule { }
