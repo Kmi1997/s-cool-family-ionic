@@ -7,6 +7,8 @@ import { ConnectionComponent } from './connection/connection.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 
+
+
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -18,7 +20,7 @@ import { HomeComponent } from './home/home.component';
     DashboardRoutingModule,
     IonicModule.forRoot(),
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ]
 })
 export class DashboardModule { }

@@ -11,7 +11,6 @@ import { ConnectionModel } from '../models/connection.model';
   styleUrls: ['./connection.component.scss'],
 })
 export class ConnectionComponent implements OnInit, OnDestroy {
-
   formGroup!: FormGroup;
   formValid: boolean = false;
   error: boolean = false;
