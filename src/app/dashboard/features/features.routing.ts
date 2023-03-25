@@ -1,17 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AdminComponent } from './admin/admin.component';
-import { InternshipsComponent } from './internships/internships.component';
+import { FeatureComponent } from './feature/feature.component';
 import { ParamsComponent } from './params/params.component';
-import { RegistrationsComponent } from './registrations/registrations.component';
+
 
 const routes: Routes = [
 
-    { path: '', pathMatch: "full", redirectTo: '/dashboard/features/internships' },
-    { path: "params", component: ParamsComponent },
-    { path: "admins", component: AdminComponent },
-    { path: "registrations", component: RegistrationsComponent },
-    { path: "internships", component: InternshipsComponent }
+    { path: '', pathMatch: "full", redirectTo: '/dashboard/features/internship' },
+    { path: "internship", component: FeatureComponent },
+    { path: "admin", component: FeatureComponent },
+    { path: "registration", component: FeatureComponent },
+    { path: "param", component: ParamsComponent }
 
 ];
 

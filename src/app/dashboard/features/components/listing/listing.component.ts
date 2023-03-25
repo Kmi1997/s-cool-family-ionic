@@ -11,7 +11,7 @@ import { CallAPIService } from 'src/app/shared/services/calls-api.service';
 })
 export class ListingComponent implements OnInit, OnDestroy {
 
-  @Input() paramService: string;
+  @Input() route: string;
   dataArray: Model[] = [];
   subscriptions: Subscription[] = [];
 
@@ -19,8 +19,8 @@ export class ListingComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
 
-    console.log(this.paramService);
-    this.subscriptions.push(this.service.getAll(this.paramService).subscribe((response: Model[]) => {
+    console.log(this.route);
+    this.subscriptions.push(this.service.getAll(this.route).subscribe((response: Model[]) => {
       console.log(response);
       this.dataArray = response;
     }));
@@ -28,7 +28,7 @@ export class ListingComponent implements OnInit, OnDestroy {
   }
 
   deleteInternship(id: number) {
-    this.subscriptions.push(this.service.delete(id, this.paramService).subscribe((response: DeleteResponseModel<Model[]>) => {
+    this.subscriptions.push(this.service.delete(id, this.route).subscribe((response: DeleteResponseModel<Model[]>) => {
       this.dataArray = response.results;
     }));
   }

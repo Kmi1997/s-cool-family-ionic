@@ -13,19 +13,19 @@ export class DashboardComponent implements OnInit, OnDestroy {
   menuList: { menuName: string, url: string; }[] = [
     {
       menuName: 'Stages',
-      url: '/dashboard/features/internships'
+      url: '/dashboard/features/internship'
     },
     {
       menuName: 'Inscriptions',
-      url: '/dashboard/features/registrations'
+      url: '/dashboard/features/registration'
     },
     {
       menuName: 'Comptes',
-      url: '/dashboard/features/admins'
+      url: '/dashboard/features/admin'
     },
     {
       menuName: 'Paramètres',
-      url: '/dashboard/features/params'
+      url: '/dashboard/features/param'
     },
   ];
 

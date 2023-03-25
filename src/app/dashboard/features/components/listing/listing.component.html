@@ -2,8 +2,8 @@
     <ion-item>
         <ion-title> Stages prévus </ion-title>
     </ion-item>
-    <ion-item *ngFor="let internship of dataArray">
-        <ion-label>{{internship.name}}</ion-label>
+    <ion-item *ngFor="let element of dataArray">
+        <ion-label>{{element.name || element.childName}}</ion-label>
         <ion-icon name="create-outline"></ion-icon>
         <ion-icon (click)="deleteInternship(internship.id)" name="trash-outline"></ion-icon>
     </ion-item>
