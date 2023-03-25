@@ -25,10 +25,10 @@ export class TokenInterceptor implements HttpInterceptor {
           console.log(error);
           if (error.status === 401) {
             localStorage.clear();
+            return throwError('Session expirée');
           };
 
-          // this.apiErrorService.sendError(error)
-          return throwError('Session expirée');
+          return throwError('Erreur');
         })
       );
     };

@@ -5,15 +5,12 @@ import { IonicModule } from '@ionic/angular';
 import { DashboardComponent } from './dashboard.component';
 import { ConnectionComponent } from './connection/connection.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HomeComponent } from './home/home.component';
-
 
 
 @NgModule({
   declarations: [
     DashboardComponent,
-    ConnectionComponent,
-    HomeComponent
+    ConnectionComponent
   ],
   imports: [
     CommonModule,

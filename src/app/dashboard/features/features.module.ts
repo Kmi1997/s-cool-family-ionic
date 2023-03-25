@@ -5,8 +5,8 @@ import { ParamsComponent } from './params/params.component';
 import { InternshipsComponent } from './internships/internships.component';
 import { AdminComponent } from './admin/admin.component';
 import { FeaturesRoutingModule } from './features.routing';
-import { FeaturesComponent } from './features.component';
 import { IonicModule } from '@ionic/angular';
+import { ListingModule } from './components/listing/listing.module';
 
 
 
@@ -15,13 +15,14 @@ import { IonicModule } from '@ionic/angular';
     RegistrationsComponent,
     ParamsComponent,
     InternshipsComponent,
-    AdminComponent,
-    FeaturesComponent
+    AdminComponent
   ],
   imports: [
     CommonModule,
     FeaturesRoutingModule,
-    IonicModule.forRoot()
+    IonicModule.forRoot(),
+    ListingModule
+
   ]
 })
 export class FeaturesModule { }

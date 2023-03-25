@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { catchError, Subscription } from 'rxjs';
 import { CallAPIService } from 'src/app/shared/services/calls-api.service';
 import { ConnectionModel } from '../models/connection.model';
+import { Token } from '../models/customType.type';
 
 @Component({
   selector: 'app-connection',
@@ -36,9 +37,9 @@ export class ConnectionComponent implements OnInit, OnDestroy {
         console.log(err);
         this.error = err;
         return err;
-      })).subscribe((x) => {
-        localStorage.setItem('Token', x.token);
-        this.router.navigate(["dashboard/home"]);
+      })).subscribe((response: Token) => {
+        localStorage.setItem('Token', response.token);
+        this.router.navigate(["dashboard/features/internships"]);
       });
   }
 

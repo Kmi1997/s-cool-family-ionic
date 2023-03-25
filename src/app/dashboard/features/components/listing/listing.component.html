@@ -1,0 +1,13 @@
+<ion-list [inset]="true">
+    <ion-item>
+        <ion-title> Stages prévus </ion-title>
+    </ion-item>
+    <ion-item *ngFor="let internship of dataArray">
+        <ion-label>{{internship.name}}</ion-label>
+        <ion-icon name="create-outline"></ion-icon>
+        <ion-icon (click)="deleteInternship(internship.id)" name="trash-outline"></ion-icon>
+    </ion-item>
+    <ion-item>
+        <ion-icon size="large" name="add-circle-outline"></ion-icon>
+    </ion-item>
+</ion-list>

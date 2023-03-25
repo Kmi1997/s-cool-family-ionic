@@ -7,7 +7,7 @@ import { RegistrationsComponent } from './registrations/registrations.component'
 
 const routes: Routes = [
 
-    { path: '', pathMatch: "full", redirectTo: '/dashboard/home' },
+    { path: '', pathMatch: "full", redirectTo: '/dashboard/features/internships' },
     { path: "params", component: ParamsComponent },
     { path: "admins", component: AdminComponent },
     { path: "registrations", component: RegistrationsComponent },
