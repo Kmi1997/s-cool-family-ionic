@@ -39,7 +39,7 @@ export class ConnectionComponent implements OnInit, OnDestroy {
         return err;
       })).subscribe((response: Token) => {
         localStorage.setItem('Token', response.token);
-        this.router.navigate(["dashboard/features/internships"]);
+        this.router.navigate(["dashboard/features/internship"]);
       });
   }
 

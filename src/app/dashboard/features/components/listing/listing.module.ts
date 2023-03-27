@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ListingComponent } from './listing.component';
 import { IonicModule } from '@ionic/angular';
-
+import { PipeModule } from 'src/app/shared/pipe/pipe.module';
 
 
 @NgModule({
@@ -11,7 +11,8 @@ import { IonicModule } from '@ionic/angular';
   ],
   imports: [
     CommonModule,
-    IonicModule.forRoot()
+    IonicModule.forRoot(),
+    PipeModule
   ],
   exports: [ListingComponent]
 })
