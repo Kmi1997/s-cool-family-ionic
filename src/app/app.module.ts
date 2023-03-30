@@ -10,6 +10,7 @@ import { Four0fourComponent } from './four0four/four0four.component';
 import { TokenInterceptorProvider } from './shared/interceptor/token.interceptor';
 import { HttpClientModule } from '@angular/common/http';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    HttpClientModule,
+    HttpClientModule
   ],
 
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, TokenInterceptorProvider],

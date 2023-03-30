@@ -9,12 +9,11 @@ const routes: Routes = [
 
     {
         path: '', component: DashboardComponent, children: [
+
             { path: 'connection', component: ConnectionComponent },
             { path: 'features', canLoad: [FeaturesGuard], loadChildren: () => import('./features/features.module').then(m => m.FeaturesModule) },
         ]
-    },
-
-
+    }
 ];
 
 @NgModule({

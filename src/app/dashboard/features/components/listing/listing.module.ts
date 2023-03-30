@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ListingComponent } from './listing.component';
 import { IonicModule } from '@ionic/angular';
 import { PipeModule } from 'src/app/shared/pipe/pipe.module';
+import { InternshipListingModule } from '../internship-listing/internship-listing.module';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { PipeModule } from 'src/app/shared/pipe/pipe.module';
   imports: [
     CommonModule,
     IonicModule.forRoot(),
-    PipeModule
+    PipeModule,
+    InternshipListingModule
   ],
   exports: [ListingComponent]
 })

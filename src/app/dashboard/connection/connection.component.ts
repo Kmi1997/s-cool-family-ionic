@@ -13,8 +13,8 @@ import { Token } from '../models/customType.type';
 })
 export class ConnectionComponent implements OnInit, OnDestroy {
   formGroup!: FormGroup;
-  formValid: boolean = false;
-  error: boolean = false;
+  formValid = false;
+  error = false;
   CallApiSubscription = new Subscription;
 
   constructor(private builder: FormBuilder, private service: CallAPIService, private router: Router) {

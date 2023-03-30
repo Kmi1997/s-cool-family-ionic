@@ -1,0 +1,38 @@
+<app-card [title]="intern.name">
+    <ion-grid>
+        <ion-row class="ion-align-items-center">
+            <ion-col>
+                <ion-row>
+                    {{intern.place}}
+                </ion-row>
+                <br>
+                <ion-row>
+                    {{intern.price}}€ / enfant
+                </ion-row>
+            </ion-col>
+            <ion-col>
+                <ion-row>
+                    À partir de {{intern.fromAge}} ans
+                </ion-row>
+                <br>
+                <ion-row>
+                    Places disponibles : {{intern.numberAvailable}}
+                </ion-row>
+            </ion-col>
+            <ion-col>
+                <ion-row>
+                    Début: {{intern.startDate | date:'shortDate':'fr'}} à {{intern.startHour}}
+                </ion-row>
+                <br>
+                <ion-row>
+                    Fin: {{intern.endDate | date:'shortDate':'fr'}} à {{intern.endHour}}
+                </ion-row>
+            </ion-col>
+            <ion-col>
+                <app-button iconName="add"></app-button>
+                <app-button iconName="settings"></app-button>
+                <app-button iconName="trash-bin"></app-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</app-card>

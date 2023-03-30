@@ -15,11 +15,11 @@ export class ListingComponent implements OnInit, OnDestroy {
   dataArray: Model[] = [];
   subscriptions: Subscription[] = [];
 
+
   constructor(private service: CallAPIService) { }
 
   ngOnInit(): void {
 
-    console.log(this.route);
     this.subscriptions.push(this.service.getAll(this.route).subscribe((response: Model[]) => {
       console.log(response);
       this.dataArray = response;

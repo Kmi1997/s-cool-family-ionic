@@ -7,7 +7,6 @@ import { IonicModule } from '@ionic/angular';
 import { ListingModule } from './components/listing/listing.module';
 
 
-
 @NgModule({
   declarations: [
     ParamsComponent,
@@ -18,7 +17,6 @@ import { ListingModule } from './components/listing/listing.module';
     FeaturesRoutingModule,
     IonicModule.forRoot(),
     ListingModule
-
   ]
 })
 export class FeaturesModule { }

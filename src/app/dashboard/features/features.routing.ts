@@ -13,7 +13,8 @@ const routes: Routes = [
     { path: "param", component: ParamsComponent }
 
 ];
-
+//
+//
 @NgModule({
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]

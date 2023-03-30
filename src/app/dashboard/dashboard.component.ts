@@ -34,7 +34,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
-    this.menuList.forEach((x: any) => console.log(x.url));
     this.obs.obsCheckConnectedFn().subscribe((x: boolean) => {
       this.obsConnected = x;
     });
