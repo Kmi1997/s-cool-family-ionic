@@ -5,6 +5,7 @@ import { FeatureComponent } from './feature/feature.component';
 import { FeaturesRoutingModule } from './features.routing';
 import { IonicModule } from '@ionic/angular';
 import { ListingModule } from './components/listing/listing.module';
+import { ButtonModule } from 'src/app/shared/components/button/button.module';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { ListingModule } from './components/listing/listing.module';
     CommonModule,
     FeaturesRoutingModule,
     IonicModule.forRoot(),
-    ListingModule
+    ListingModule,
+    ButtonModule
   ]
 })
 export class FeaturesModule { }

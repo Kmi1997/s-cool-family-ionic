@@ -2,3 +2,8 @@
     <app-listing [route]="routeParam"> </app-listing>
 
 </ion-content>
+<ion-footer class="ion-no-border" *ngIf="routeParam == 'internship' || routeParam == 'registration'">
+    <div style="display: flex; flex-direction: row; justify-content:center;">
+        <app-button size="large" iconName="add" disabled="false"></app-button>
+    </div>
+</ion-footer>

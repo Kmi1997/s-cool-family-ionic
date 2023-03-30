@@ -1,0 +1,38 @@
+<app-card title="Ajouter un stage">
+    <ion-grid>
+        <form [formGroup]="formGroup">
+            <ion-row class="ion-align-items-center">
+                <ion-col>
+                    <ion-item>
+                        <ion-input type="text" placeholder="Nom" required formControlName="name" errorText="Nom requis">
+                        </ion-input>
+                    </ion-item>
+                    <br>
+                    <ion-item>
+                        <ion-input type="number" placeholder="Nombre de places" required
+                            formControlName="numberAvailable" errorText="Champ requis">
+                        </ion-input>
+                    </ion-item>
+                </ion-col>
+                <ion-col>
+                    <ion-item>
+
+                    </ion-item>
+                    <br>
+                    <ion-item>
+
+                    </ion-item>
+                </ion-col>
+                <ion-col>
+                    <ion-item>
+
+                    </ion-item>
+                    <br>
+                    <ion-item>
+
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+        </form>
+    </ion-grid>
+</app-card>

@@ -9,6 +9,8 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 export class ButtonComponent {
 
   @Input() iconName: string;
+  @Input() size = "default";
+  @Input() disabled = false;
 
 
 }

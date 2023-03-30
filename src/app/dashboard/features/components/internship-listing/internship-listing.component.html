@@ -29,9 +29,8 @@
                 </ion-row>
             </ion-col>
             <ion-col>
-                <app-button iconName="add"></app-button>
                 <app-button iconName="settings"></app-button>
-                <app-button iconName="trash-bin"></app-button>
+                <app-button iconName="trash-bin" (click)="deleteInternship(intern.id)"></app-button>
             </ion-col>
         </ion-row>
     </ion-grid>

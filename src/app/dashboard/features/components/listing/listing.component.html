@@ -1,1 +1,4 @@
-<app-internship-listing *ngFor="let intern of dataArray" [intern]="intern"></app-internship-listing>
+<app-loading [loading]="loading"></app-loading>
+<app-internship-listing *ngFor="let intern of dataArray" [intern]="intern" (emitIntern)="getEmittedIntern($event)">
+</app-internship-listing>
+<app-internship-add></app-internship-add>
