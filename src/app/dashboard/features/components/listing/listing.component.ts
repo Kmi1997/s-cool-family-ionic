@@ -15,6 +15,7 @@ export class ListingComponent implements OnInit, OnDestroy {
   dataArray: Model[] = [];
   subscriptions: Subscription[] = [];
   loading = false;
+  printButton = false;
 
   constructor(private service: CallAPIService) { }
 
@@ -33,6 +34,10 @@ export class ListingComponent implements OnInit, OnDestroy {
     this.dataArray = intern.results;
   }
 
+  getClickButton(bool: boolean){
+    console.log(bool)
+    this.printButton = bool;
+  }
   ngOnDestroy(): void {
     this.subscriptions.forEach((sub: Subscription) => {
       sub.unsubscribe();

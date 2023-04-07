@@ -7,6 +7,7 @@ import { InternshipListingModule } from '../internship-listing/internship-listin
 import { ButtonModule } from 'src/app/shared/components/button/button.module';
 import { LoadingModule } from 'src/app/shared/components/loading/loading.module';
 import { InternshipAddModule } from '../internship-add/internship-add.module';
+import {AddButtonModule} from "../../../../shared/components/addButton/add-button.module";
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { InternshipAddModule } from '../internship-add/internship-add.module';
     InternshipListingModule,
     ButtonModule,
     LoadingModule,
-    InternshipAddModule
+    InternshipAddModule,
+    AddButtonModule
   ],
   exports: [ListingComponent]
 })

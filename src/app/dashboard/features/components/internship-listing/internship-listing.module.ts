@@ -5,8 +5,6 @@ import { IonicModule } from '@ionic/angular';
 import { CardModule } from 'src/app/shared/components/card/card.module';
 import { ButtonModule } from 'src/app/shared/components/button/button.module';
 
-
-
 @NgModule({
   declarations: [InternshipListingComponent],
   imports: [

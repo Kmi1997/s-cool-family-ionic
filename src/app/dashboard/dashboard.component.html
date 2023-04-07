@@ -8,6 +8,9 @@
     <nav>
       <ion-item routerDirection="forward" *ngFor="let element of menuList" [routerLink]='element.url'>
         {{element.menuName}} </ion-item>
+      <ion-item>
+        <app-button (click)="signOut()" text="Déconnexion"></app-button>
+      </ion-item>
     </nav>
   </ion-content>
 </ion-menu>

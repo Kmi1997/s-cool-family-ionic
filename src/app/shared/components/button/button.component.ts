@@ -11,6 +11,9 @@ export class ButtonComponent {
   @Input() iconName: string;
   @Input() size = "default";
   @Input() disabled = false;
+  @Input() text : string;
 
+  constructor() {
+  }
 
 }

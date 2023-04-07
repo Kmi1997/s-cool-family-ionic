@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { DashboardComponent } from './dashboard.component';
 import { ConnectionComponent } from './connection/connection.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {ButtonModule} from "../shared/components/button/button.module";
 
 
 
@@ -18,7 +19,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     DashboardRoutingModule,
     IonicModule.forRoot(),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ButtonModule
   ],
   exports: [DashboardComponent]
 })

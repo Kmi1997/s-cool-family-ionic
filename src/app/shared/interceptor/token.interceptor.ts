@@ -5,15 +5,14 @@ import {
   HttpEvent,
   HttpInterceptor,
   HTTP_INTERCEPTORS,
-  HttpResponse,
 } from '@angular/common/http';
 import { Observable, catchError, throwError } from 'rxjs';
-import { ApiErrorService } from '../services/api-error.service';
+
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
 
-  constructor(private apiErrorService: ApiErrorService) { }
+  constructor() { }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     if (localStorage.getItem('Token') !== null) {

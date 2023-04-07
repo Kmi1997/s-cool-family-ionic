@@ -1,3 +1,4 @@
 <ion-button [size]="size" [disabled]="disabled">
-    <ion-icon [name]="iconName"></ion-icon>
+    <ion-icon *ngIf="iconName" [name]="iconName"></ion-icon>
+  {{text}}
 </ion-button>
