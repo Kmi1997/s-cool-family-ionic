@@ -1,3 +1,4 @@
+  <app-popup [isOpen]="printPopover" [msg]="popoverMessage" [color]="printPopover ? 'green' : 'red'"></app-popup>
 <app-card [title]="intern.name">
     <ion-grid>
         <ion-row class="ion-align-items-center">
@@ -21,18 +22,23 @@
             </ion-col>
             <ion-col>
                 <ion-row>
-                    Début: {{intern.startDate | date:'shortDate':'fr'}} à {{intern.startHour}}
+                    Début: {{intern.startDate | date:'dd/MM/yy'}}
                 </ion-row>
                 <br>
                 <ion-row>
-                    Fin: {{intern.endDate | date:'shortDate':'fr'}} à {{intern.endHour}}
+                    Fin: {{intern.endDate | date:'dd/MM/yy'}}
                 </ion-row>
             </ion-col>
+          <ion-col>
+            <ion-row>
+              Horaire: {{intern.startHour}} - {{intern.endHour}}
+            </ion-row>
+          </ion-col>
             <ion-col>
-                <app-button iconName="settings"></app-button>
+                <app-button iconName="settings" (click)="updateForm()"></app-button>
                 <app-button iconName="trash-bin" (click)="deleteInternship(intern.id)"></app-button>
             </ion-col>
         </ion-row>
     </ion-grid>
-  <ng-content></ng-content>
+ <app-internship-add *ngIf="printUpdate" addOrPatch="patch" [internship]="intern"  title="Modifier ce stage" (postStatus)="getPostStatus($event)" (postMessage)="getPostMessage($event)" (closeCard)="getClosedButton($event)"></app-internship-add>
 </app-card>

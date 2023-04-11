@@ -1,5 +1,4 @@
-import { Component, ContentChild, ElementRef, Input, TemplateRef } from '@angular/core';
-import { Model } from 'src/app/dashboard/models/Model.model';
+import {Component,Input} from '@angular/core';
 
 @Component({
   selector: 'app-card',
@@ -9,5 +8,7 @@ import { Model } from 'src/app/dashboard/models/Model.model';
 export class CardComponent {
 
   @Input() title = "Card";
+  @Input() closeButton = false;
+
 
 }

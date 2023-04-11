@@ -4,6 +4,8 @@ import { InternshipListingComponent } from './internship-listing.component';
 import { IonicModule } from '@ionic/angular';
 import { CardModule } from 'src/app/shared/components/card/card.module';
 import { ButtonModule } from 'src/app/shared/components/button/button.module';
+import {InternshipAddModule} from "../internship-add/internship-add.module";
+import {PopupModule} from "../../../../shared/components/popup/popup.module";
 
 @NgModule({
   declarations: [InternshipListingComponent],
@@ -11,7 +13,9 @@ import { ButtonModule } from 'src/app/shared/components/button/button.module';
     CommonModule,
     IonicModule,
     CardModule,
-    ButtonModule
+    ButtonModule,
+    InternshipAddModule,
+    PopupModule
   ],
   exports: [InternshipListingComponent]
 })

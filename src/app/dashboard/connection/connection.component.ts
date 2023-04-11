@@ -13,7 +13,6 @@ import { Token } from '../models/customType.type';
 })
 export class ConnectionComponent implements OnInit, OnDestroy {
   formGroup!: FormGroup;
-  formValid = false;
   error = false;
   CallApiSubscription = new Subscription;
 

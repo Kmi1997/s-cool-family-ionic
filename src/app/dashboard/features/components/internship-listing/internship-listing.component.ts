@@ -15,12 +15,32 @@ export class InternshipListingComponent {
 
   @Input() intern: InternshipModel;
   @Output() emitIntern: EventEmitter<DeleteResponseModel<Model[]>> = new EventEmitter<DeleteResponseModel<Model[]>>();
-
+  printUpdate = false;
+  printPopover = false;
+  popoverMessage : string;
   constructor(private service: CallAPIService) { }
 
   deleteInternship(id: number) {
     this.service.delete(id, "internship").subscribe((response: DeleteResponseModel<Model[]>) => {
       this.emitIntern.emit(response);
     });
+  }
+
+  updateForm(){
+    this.printUpdate = !this.printUpdate;
+  }
+
+  getClosedButton(value : boolean){
+    this.printUpdate = value;
+  }
+
+  getPostStatus(value : boolean){
+    console.log(value)
+    this.printPopover = value;
+    // if(value) this.getAll('internship');
+  }
+
+  getPostMessage(msg : string){
+    this.popoverMessage = msg;
   }
 }

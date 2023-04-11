@@ -1,5 +1,6 @@
-<app-add-button (emitToPrintButton)="getClickButton($event)"></app-add-button>
-<app-internship-listing *ngFor="let intern of dataArray" [intern]="intern" (emitIntern)="getEmittedIntern($event)">
 <app-loading [loading]="loading"></app-loading>
+<app-add-button (emitToPrintButton)="getClickButton($event)" ></app-add-button>
+<app-popup [isOpen]="printPopover" [msg]="popoverMessage" [color]="printPopover ? 'green' : 'red'"></app-popup>
+<app-internship-listing *ngFor="let intern of dataArray" [intern]="intern" (emitIntern)="getEmittedIntern($event)" >
 </app-internship-listing>
-<app-internship-add *ngIf="printButton"></app-internship-add>
+<app-internship-add addOrPatch="add" title="Ajouter un stage" (postStatus)="getPostStatus($event)" (postMessage)="getPostMessage($event)" (closeCard)="getClosedButton($event)" *ngIf="printButton && printCard"></app-internship-add>

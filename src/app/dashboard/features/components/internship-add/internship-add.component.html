@@ -1,4 +1,8 @@
-<app-card title="Ajouter un stage">
+<app-card [title]="title">
+  <div style="position: fixed; right: 10px; top: 10px;">
+    <app-button (click)="close()" iconName="close-outline"></app-button>
+  </div>
+  <app-loading [loading]="loading"></app-loading>
     <ion-grid>
         <form [formGroup]="formGroup">
             <ion-row class="ion-align-items-center">
@@ -69,7 +73,9 @@
                 </ion-col>
               <ion-col offset="1" size="10" size-md="4" size-lg="9">
                 <div style="display: flex; flex-direction: row; justify-content: center;" >
-                <app-button iconName="save-outline" [disabled]="!formGroup.valid"></app-button>
+                <app-button *ngIf="addOrPatch === 'add'" iconName="save-outline" (click)="postInternship()" [disabled]="!formGroup.valid"></app-button>
+                  <app-button *ngIf="addOrPatch === 'patch'" iconName="save-outline" (click)="update()" [disabled]="!formGroup.valid"></app-button>
+
                 </div>
               </ion-col>
             </ion-row>

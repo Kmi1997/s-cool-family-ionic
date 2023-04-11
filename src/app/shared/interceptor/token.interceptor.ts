@@ -7,12 +7,13 @@ import {
   HTTP_INTERCEPTORS,
 } from '@angular/common/http';
 import { Observable, catchError, throwError } from 'rxjs';
+import {Router} from "@angular/router";
 
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
 
-  constructor() { }
+  constructor(private router : Router) { }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     if (localStorage.getItem('Token') !== null) {
@@ -24,6 +25,7 @@ export class TokenInterceptor implements HttpInterceptor {
           console.log(error);
           if (error.status === 401) {
             localStorage.clear();
+            this.router.navigate(['/dashboard/connection']);
             return throwError('Session expirée');
           };
 
