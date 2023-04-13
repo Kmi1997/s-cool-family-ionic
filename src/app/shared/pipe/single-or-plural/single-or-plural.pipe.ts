@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { workerData } from 'worker_threads';
+
 
 @Pipe({
   name: 'singleOrPlural'

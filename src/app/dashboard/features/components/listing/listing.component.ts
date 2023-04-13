@@ -17,8 +17,9 @@ export class ListingComponent implements OnInit, OnDestroy {
   loading = false;
   printButton = false;
   printCard = true;
-  printPopover = false;
+  colorPopup: boolean;
   popoverMessage : string;
+  printPopup = false;
   constructor(private service: CallAPIService) { }
 
   ngOnInit(): void{
@@ -44,6 +45,11 @@ export class ListingComponent implements OnInit, OnDestroy {
     this.dataArray = intern.results;
   }
 
+  getEmittedRegistration(registration: DeleteResponseModel<Model[]>) {
+    console.log(registration.results);
+    this.dataArray = registration.results;
+  }
+
   getClickButton(bool: boolean){
     this.printButton = bool;
     this.printCard = true;
@@ -55,8 +61,12 @@ export class ListingComponent implements OnInit, OnDestroy {
   }
 
   getPostStatus(value : boolean){
-    this.printPopover = value;
-    if(value) this.getAll('internship');
+    this.colorPopup = value;
+    this.printPopup = true;
+    if(value) this.getAll(this.route);
+    setTimeout(() => {
+      this.printPopup = false;
+    }, 3500)
   }
 
   getPostMessage(msg : string){

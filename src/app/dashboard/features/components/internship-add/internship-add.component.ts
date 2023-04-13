@@ -1,5 +1,12 @@
-import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  OnInit,
+  Output
+} from '@angular/core';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {DateMinValidator} from "../../../../shared/Validators/DateMinValidator";
 import {EndDateMinValidator} from "../../../../shared/Validators/EndDateMin";
 import {CallAPIService} from "../../../../shared/services/calls-api.service";
@@ -12,19 +19,23 @@ import {InternshipModel} from "../../../models/internship.model";
   templateUrl: './internship-add.component.html',
   styleUrls: ['./internship-add.component.css']
 })
-export class InternshipAddComponent implements OnInit, OnDestroy{
+export class InternshipAddComponent implements OnInit, OnDestroy {
 
   formGroup: FormGroup;
-  todayDate : string;
-  @Output() closeCard : EventEmitter<boolean> = new EventEmitter<boolean>();
+  todayDate: string;
+  @Output() closeCard: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() postStatus: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() postMessage: EventEmitter<string> = new EventEmitter<string>();
+  @Output() emitId : EventEmitter<number> = new EventEmitter<number>();
   @Input() title = 'card';
-  @Input() internship : InternshipModel;
-  subscriptions : Subscription[] = [];
+  @Input() internship: InternshipModel;
+
+  subscriptions: Subscription[] = [];
   loading = false;
   @Input() addOrPatch = 'add';
-  constructor(private builder: FormBuilder, private service: CallAPIService) { }
+
+  constructor(private builder: FormBuilder, private service: CallAPIService) {
+  }
 
   ngOnInit(): void {
 
@@ -42,12 +53,12 @@ export class InternshipAddComponent implements OnInit, OnDestroy{
       fromAge: new FormControl(undefined, [Validators.required, Validators.min(1)])
     });
 
-    if(this.internship) this.patchValue();
+    if (this.internship) this.patchValue();
   }
 
-  postInternship(){
+  postInternship() {
     this.loading = true;
-    const payload : InternshipPayload = this.formGroup.value;
+    const payload: InternshipPayload = this.formGroup.value;
     this.subscriptions.push(this.service.addInternship(payload).pipe(
       catchError(error => {
         console.log(error);
@@ -59,21 +70,23 @@ export class InternshipAddComponent implements OnInit, OnDestroy{
     ).subscribe(response => {
       console.log(response)
       this.postStatus.emit(true);
-      this.loading = false;
       this.postMessage.emit(response.message);
+      this.loading = false;
       this.close();
     }));
   }
-  close(){
+
+  close() {
     this.closeCard.emit(false);
   }
 
-  patchValue(){
+  patchValue() {
     this.formGroup.patchValue({
       ...this.internship
     });
   }
-  update(){
+
+  update() {
     this.loading = true;
     const id = this.internship.id;
     this.subscriptions.push(this.service.patchInternship(this.formGroup.value, id).pipe(
@@ -85,10 +98,11 @@ export class InternshipAddComponent implements OnInit, OnDestroy{
         return error;
       })
     ).subscribe(response => {
-      this.loading = false;
       this.postMessage.emit(response.message);
       this.postStatus.emit(true);
-      console.log(response);
+      this.emitId.emit(id);
+      this.loading = false;
+      this.close();
     }));
   }
 

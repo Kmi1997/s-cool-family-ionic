@@ -1,4 +1,4 @@
-  <app-popup [isOpen]="printPopover" [msg]="popoverMessage" [color]="printPopover ? 'green' : 'red'"></app-popup>
+  <app-popup *ngIf="printPopup" [msg]="popoverMessage" [color]="colorPopup ? 'green' : 'red'"></app-popup>
 <app-card [title]="intern.name">
     <ion-grid>
         <ion-row class="ion-align-items-center">
@@ -40,5 +40,5 @@
             </ion-col>
         </ion-row>
     </ion-grid>
- <app-internship-add *ngIf="printUpdate" addOrPatch="patch" [internship]="intern"  title="Modifier ce stage" (postStatus)="getPostStatus($event)" (postMessage)="getPostMessage($event)" (closeCard)="getClosedButton($event)"></app-internship-add>
+ <app-internship-add *ngIf="printUpdate" addOrPatch="patch" [internship]="intern"  title="Modifier ce stage" (postStatus)="getPostStatus($event)" (emitId)="getId($event)" (postMessage)="getPostMessage($event)" (closeCard)="getClosedButton($event)"></app-internship-add>
 </app-card>
