@@ -2,11 +2,14 @@
 <app-add-button (emitToPrintButton)="getClickButton($event)" ></app-add-button>
 <app-popup *ngIf="printPopup" [msg]="popoverMessage" [color]="colorPopup ? 'green' : 'red'"></app-popup>
 <ng-container *ngIf="route === 'internship'">
+<app-internship-add  title="Ajouter un stage" (postStatus)="getPostStatus($event)" (postMessage)="getPostMessage($event)" (closeCard)="getClosedButton($event)" *ngIf="printButton && printCard"></app-internship-add>
 <app-internship-listing *ngFor="let intern of dataArray" [intern]="intern" (emitIntern)="getEmittedIntern($event)" >
 </app-internship-listing>
-<app-internship-add  title="Ajouter un stage" (postStatus)="getPostStatus($event)" (postMessage)="getPostMessage($event)" (closeCard)="getClosedButton($event)" *ngIf="printButton && printCard"></app-internship-add>
 </ng-container>
 <ng-container *ngIf="route === 'registration'">
-  <app-registration-listing *ngFor="let registration of dataArray" [registration]="registration" (emitRegistration)="getEmittedRegistration($event)"></app-registration-listing>
   <app-registration-add (postStatus)="getPostStatus($event)" (postMessage)="getPostMessage($event)" (closeCard)="getClosedButton($event)" title="Ajouter un stagiaire" *ngIf="printButton && printCard"></app-registration-add>
+  <app-registration-listing *ngFor="let registration of dataArray" [registration]="registration" (emitRegistration)="getEmittedRegistration($event)"></app-registration-listing>
+</ng-container>
+<ng-container *ngIf="route === 'admin'">
+  <app-admin-listing [admin]="dataArray"></app-admin-listing>
 </ng-container>

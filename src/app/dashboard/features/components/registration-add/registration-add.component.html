@@ -1,5 +1,5 @@
 <app-card [title]="title">
-  <div style="position: fixed; right: 10px; top: 10px;">
+  <div style="position: fixed; right: 80px; top: 10px;">
     <app-button (click)="close()" iconName="close-outline"></app-button>
   </div>
   <app-loading [loading]="loading"></app-loading>
@@ -55,7 +55,7 @@
         </ion-col>
         <ion-col offset="1" size="10" size-md="4" size-lg="9">
           <div style="display: flex; flex-direction: row; justify-content: center;" >
-            <app-button *ngIf="addOrPatch === 'internship'" iconName="save-outline" [disabled]="!form.valid" (click)="postRegistration()"></app-button>
+            <app-button *ngIf="addOrPatch === 'add'" iconName="save-outline" [disabled]="!form.valid" (click)="postRegistration()"></app-button>
             <app-button *ngIf="addOrPatch === 'patch'" iconName="save-outline" (click)="update()" [disabled]="!form.valid"></app-button>
           </div>
         </ion-col>

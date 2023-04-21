@@ -33,6 +33,7 @@ export class ListingComponent implements OnInit, OnDestroy {
     this.subscriptions.push(this.service.getAll(route).pipe(
       catchError(error => {
         console.log(error);
+        this.loading = false;
         return error;
       })).subscribe((response: Model[]) => {
       console.log(response);

@@ -9,6 +9,6 @@ export class CardComponent {
 
   @Input() title = "Card";
   @Input() closeButton = false;
-
-
+  @Input() size : string;
+  @Input() center = false;
 }

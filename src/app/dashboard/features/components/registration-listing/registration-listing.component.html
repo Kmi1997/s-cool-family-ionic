@@ -1,5 +1,6 @@
 <app-popup *ngIf="printPopup" [msg]="popoverMessage" [color]="colorPopup ? 'green' : 'red'"></app-popup>
 <app-card [title]="registration.childName ">
+  <app-registration-add *ngIf="printUpdate" addOrPatch="patch" [registration]="registration"  title="Modifier ce stagiaire" (emitId)="getId($event)" (postStatus)="getPostStatus($event)" (postMessage)="getPostMessage($event)" (closeCard)="getClosedButton($event)"></app-registration-add>
   <ion-grid>
     <ion-row class="ion-align-items-center">
       <ion-col>
@@ -40,6 +41,5 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <app-registration-add *ngIf="printUpdate" addOrPatch="patch" [registration]="registration"  title="Modifier ce stagiaire" (emitId)="getId($event)" (postStatus)="getPostStatus($event)" (postMessage)="getPostMessage($event)" (closeCard)="getClosedButton($event)"></app-registration-add>
 
 </app-card>

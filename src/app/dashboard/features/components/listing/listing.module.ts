@@ -9,8 +9,8 @@ import { InternshipAddModule } from '../internship-add/internship-add.module';
 import {AddButtonModule} from "../../../../shared/components/addButton/add-button.module";
 import {PopupModule} from "../../../../shared/components/popup/popup.module";
 import {RegistrationListingModule} from "../registration-listing/registration-listing.module";
-import {RegistrationAddComponent} from "../registration-add/registration-add.component";
 import {RegistrationAddModule} from "../registration-add/registration-add.module";
+import {AdminListingModule} from "../admin-listing/admin-listing.module";
 
 
 @NgModule({
@@ -27,7 +27,8 @@ import {RegistrationAddModule} from "../registration-add/registration-add.module
     AddButtonModule,
     PopupModule,
     RegistrationListingModule,
-    RegistrationAddModule
+    RegistrationAddModule,
+    AdminListingModule
   ],
   exports: [ListingComponent]
 })

@@ -18,7 +18,7 @@ div p {
 @keyframes slide {
   0% {
     visibility: visible;
-    top: 400px;
+    top: 200px;
   }
   100% {
     top: 10px;

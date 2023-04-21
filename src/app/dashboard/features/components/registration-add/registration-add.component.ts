@@ -95,7 +95,6 @@ export class RegistrationAddComponent  implements OnInit, OnDestroy {
       this.postStatus.emit(true);
       this.emitId.emit(id);
       this.loading = false;
-      console.log(this.registration);
       this.close();
     }));
   }

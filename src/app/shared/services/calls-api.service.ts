@@ -28,7 +28,6 @@ export class CallAPIService {
     return this.http.get<IUserHome>(`${this.baseURL}/admin/getThisAdmin`);
   }
 
-
   delete<P, T, R>(id: P, param: R): Observable<T> {
     return this.http.delete<T>(`${this.baseURL}/${param}/delete/${id}`);
   }
