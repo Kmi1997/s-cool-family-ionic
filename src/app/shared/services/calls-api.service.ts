@@ -4,15 +4,16 @@ import { Observable } from 'rxjs';
 import { ConnectionModel } from 'src/app/dashboard/models/connection.model';
 import { Token } from 'src/app/dashboard/models/customType.type';
 import { IUserHome } from 'src/app/dashboard/models/userHome.model';
-import {InternshipPayload} from "../../dashboard/models/internship.payload";
-import {RegistrationModel} from "../../dashboard/models/registration.model";
+import { InternshipPayload } from "../../dashboard/models/internship.payload";
+import { RegistrationModel } from "../../dashboard/models/registration.model";
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CallAPIService {
 
-  baseURL: string = 'http://localhost:3400';
+  baseURL: string = environment.base_api;
 
   constructor(private http: HttpClient) { }
 
@@ -32,20 +33,20 @@ export class CallAPIService {
     return this.http.delete<T>(`${this.baseURL}/${param}/delete/${id}`);
   }
 
-  addInternship(internship : InternshipPayload) : Observable<any>{
+  addInternship(internship: InternshipPayload): Observable<any> {
     return this.http.post(`${this.baseURL}/internship/addInternship`, internship);
   }
 
-  addRegistration(registration : RegistrationModel) : Observable<any> {
+  addRegistration(registration: RegistrationModel): Observable<any> {
     return this.http.post(`${this.baseURL}/registration/addIntern`, registration);
   }
 
 
-  patchInternship(internship : InternshipPayload, id : number) : Observable<any>{
+  patchInternship(internship: InternshipPayload, id: number): Observable<any> {
     return this.http.patch(`${this.baseURL}/internship/updating/${id}`, internship);
   }
 
-  patchRegistration(registration : RegistrationModel, id : number) : Observable<any>{
+  patchRegistration(registration: RegistrationModel, id: number): Observable<any> {
     return this.http.patch(`${this.baseURL}/registration/update/${id}`, registration);
   }
 }
