@@ -1,0 +1,44 @@
+  <app-popup *ngIf="printPopup" [msg]="popoverMessage" [color]="colorPopup ? 'green' : 'red'"></app-popup>
+<app-card [title]="intern.name">
+    <ion-grid>
+        <ion-row class="ion-align-items-center">
+            <ion-col>
+                <ion-row>
+                    {{intern.place}}
+                </ion-row>
+                <br>
+                <ion-row>
+                    {{intern.price}}€ / enfant
+                </ion-row>
+            </ion-col>
+            <ion-col>
+                <ion-row>
+                    À partir de {{intern.fromAge}} ans
+                </ion-row>
+                <br>
+                <ion-row>
+                    Places disponibles : {{intern.numberAvailable}}
+                </ion-row>
+            </ion-col>
+            <ion-col>
+                <ion-row>
+                    Début: {{intern.startDate | date:'dd/MM/yy'}}
+                </ion-row>
+                <br>
+                <ion-row>
+                    Fin: {{intern.endDate | date:'dd/MM/yy'}}
+                </ion-row>
+            </ion-col>
+          <ion-col>
+            <ion-row>
+              Horaire: {{intern.startHour}} - {{intern.endHour}}
+            </ion-row>
+          </ion-col>
+            <ion-col>
+                <app-button iconName="settings" (click)="updateForm()"></app-button>
+                <app-button iconName="trash-bin" (click)="deleteInternship(intern.id)"></app-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+ <app-internship-add *ngIf="printUpdate" addOrPatch="patch" [internship]="intern"  title="Modifier ce stage" (postStatus)="getPostStatus($event)" (emitId)="getId($event)" (postMessage)="getPostMessage($event)" (closeCard)="getClosedButton($event)"></app-internship-add>
+</app-card>

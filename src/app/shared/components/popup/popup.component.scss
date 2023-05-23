@@ -1,0 +1,31 @@
+div{
+  visibility: hidden;
+  height: 50px;
+  width: 200px;
+  border-radius: 14px 14px 14px 14px;
+  box-shadow: 1px 3px 10px grey;
+  position: fixed;
+  right: 50px;
+  top: 10px;
+  animation: 3.5s slide;
+  z-index: 1;
+  p{
+    text-align: center;
+    color: white;
+  }
+}
+
+@keyframes slide {
+  0%{
+    visibility: visible;
+    top: 200px;
+  }
+  100%{
+    top: 10px;
+    visibility: hidden;
+
+    opacity: 0;
+  }
+}
+
+

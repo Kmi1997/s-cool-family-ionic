@@ -1,0 +1,9 @@
+<div [ngClass]="{'cardCenter' : center}">
+<ion-card [style.width]="size">
+    <ion-card-header>
+        <ion-card-title>{{title}}</ion-card-title>
+    </ion-card-header>
+    <ng-content>
+    </ng-content>
+</ion-card>
+</div>

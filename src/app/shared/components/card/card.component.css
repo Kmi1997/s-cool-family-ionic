@@ -1,0 +1,7 @@
+.cardCenter {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+/*# sourceMappingURL=card.component.css.map */

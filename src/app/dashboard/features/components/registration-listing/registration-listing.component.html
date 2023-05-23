@@ -1,0 +1,45 @@
+<app-popup *ngIf="printPopup" [msg]="popoverMessage" [color]="colorPopup ? 'green' : 'red'"></app-popup>
+<app-card [title]="registration.childName ">
+  <app-registration-add *ngIf="printUpdate" addOrPatch="patch" [registration]="registration"  title="Modifier ce stagiaire" (emitId)="getId($event)" (postStatus)="getPostStatus($event)" (postMessage)="getPostMessage($event)" (closeCard)="getClosedButton($event)"></app-registration-add>
+  <ion-grid>
+    <ion-row class="ion-align-items-center">
+      <ion-col>
+        <ion-row *ngFor="let internship of registration.Internships">
+          Inscrit à:  {{internship.name}}
+        </ion-row>
+        <br>
+        <ion-row>
+          {{registration.age}} ans
+        </ion-row>
+      </ion-col>
+      <ion-col>
+        <ion-row>
+          Mail: {{registration.mail}}
+        </ion-row>
+        <br>
+        <ion-row>
+          Personne de contact: {{registration.parentName}}
+        </ion-row>
+      </ion-col>
+      <ion-col>
+        <ion-row>
+          Téléphone: {{registration.parentPhone}}
+        </ion-row>
+        <br>
+        <ion-row>
+          Inscription payée: {{registration.paid | booleanPipe:'registration.paid'}}
+        </ion-row>
+      </ion-col>
+      <ion-col *ngIf="registration.healthIssue">
+        <ion-row>
+          Problème de santé: {{registration.healthIssue}}
+        </ion-row>
+      </ion-col>
+      <ion-col>
+        <app-button iconName="settings" (click)="updateForm()"></app-button>
+        <app-button iconName="trash-bin" (click)="deleteRegistration(registration.id)"></app-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</app-card>

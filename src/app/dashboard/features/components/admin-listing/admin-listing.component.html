@@ -1,0 +1,9 @@
+<app-card title="Comptes" [size]="'400px'" center="true">
+    <ion-list>
+      <ion-item *ngFor="let person of admin">
+        <ion-label>{{person.username}}</ion-label>
+        <ion-text> {{person.superRoot | adminOrUser: 'person.superRoot'}}</ion-text>
+      </ion-item>
+      <ion-item lines="none"></ion-item>
+    </ion-list>
+</app-card>
