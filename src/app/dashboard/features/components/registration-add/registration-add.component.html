@@ -1,9 +1,9 @@
 <app-card [title]="title">
-  <div style="position: fixed; right: 80px; top: 10px;">
-    <app-button (click)="close()" iconName="close-outline"></app-button>
-  </div>
   <app-loading [loading]="loading"></app-loading>
   <ion-grid>
+    <ion-row>
+      <app-button (click)="close()" iconName="close-outline" size="small"></app-button>
+    </ion-row>
     <form [formGroup]="form">
       <ion-row class="ion-align-items-center">
         <ion-col offset="1" size="10" size-md="4" size-lg="3">
@@ -13,13 +13,11 @@
           </ion-item>
 
           <ion-item>
-            <ion-input type="text" placeholder="Personne de contact"
-                       formControlName="parentName">
+            <ion-input type="text" placeholder="Personne de contact" formControlName="parentName">
             </ion-input>
           </ion-item>
           <ion-item>
-            <ion-input type="number" min="1" max='100' placeholder="Âge"
-                       formControlName="age">
+            <ion-input type="number" min="1" max='100' placeholder="Âge" formControlName="age">
             </ion-input>
             <ion-text> ans</ion-text>
           </ion-item>
@@ -32,13 +30,11 @@
             </ion-input>
           </ion-item>
           <ion-item>
-            <ion-input type="text" placeholder="Problèmes de santé?"
-                       formControlName="healthIssue">
+            <ion-input type="text" placeholder="Problèmes de santé?" formControlName="healthIssue">
             </ion-input>
           </ion-item>
           <ion-item>
-            <ion-input type="tel" placeholder="Téléphone"
-                       formControlName="parentPhone">
+            <ion-input type="tel" placeholder="Téléphone" formControlName="parentPhone">
             </ion-input>
           </ion-item>
         </ion-col>
@@ -49,14 +45,17 @@
           </ion-item>
           <ion-item>
             <ion-select aria-label="Stage" placeholder="Sélectionner un stage" formControlName="internshipId">
-              <ion-select-option *ngFor="let intern of internships" [value]="intern.id"> {{intern.name}}</ion-select-option>
+              <ion-select-option *ngFor="let intern of internships" [value]="intern.id">
+                {{intern.name}}</ion-select-option>
             </ion-select>
           </ion-item>
         </ion-col>
         <ion-col offset="1" size="10" size-md="4" size-lg="9">
-          <div style="display: flex; flex-direction: row; justify-content: center;" >
-            <app-button *ngIf="addOrPatch === 'add'" iconName="save-outline" [disabled]="!form.valid" (click)="postRegistration()"></app-button>
-            <app-button *ngIf="addOrPatch === 'patch'" iconName="save-outline" (click)="update()" [disabled]="!form.valid"></app-button>
+          <div style="display: flex; flex-direction: row; justify-content: center;">
+            <app-button *ngIf="addOrPatch === 'add' && form.valid" iconName="save-outline" [disabled]="!form.valid"
+              (click)="postRegistration()"></app-button>
+            <app-button *ngIf="addOrPatch === 'patch' && form.valid" iconName="save-outline" (click)="update()"
+              [disabled]="!form.valid"></app-button>
           </div>
         </ion-col>
       </ion-row>
